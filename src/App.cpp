@@ -1,5 +1,5 @@
 #include "App.h"
-#include "../go/main.h"
+#include "../go/app.h"
 
 #include <windows.h>
 
@@ -19,7 +19,7 @@ void App::LoadContent() {
 
 	// AtlasLog("%d", Add(a, b));
 
-    HINSTANCE hGetProcIDDLL = LoadLibrary("../go/main.so");
+    HINSTANCE hGetProcIDDLL = LoadLibrary("../go/app.so");
 
     if (!hGetProcIDDLL) {
         out.append("Failed to load DLL. ");
