@@ -6,8 +6,6 @@
 std::string Atlas::EngineInstance::assetDirectory = "../data";
 std::string Atlas::EngineInstance::shaderDirectory = "shader";
 
-typedef GoInt (__stdcall *f_add)(GoInt, GoInt);
-
 void App::LoadContent() {
 
     viewport = Atlas::Viewport(0, 0, window.GetWidth(), window.GetHeight());
@@ -32,7 +30,7 @@ void App::LoadContent() {
     }
 
     // resolve function address here
-    f_add add = (f_add)GetProcAddress(hGetProcIDDLL, "Add");
+    auto add = (GoInt (*)(GoInt, GoInt))GetProcAddress(hGetProcIDDLL, "Add");
     if (!add) {
         out.append("Couldn't find function. ");
         return;
