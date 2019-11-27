@@ -7,6 +7,6 @@ This project provides an interface between the [Atlas Engine](https://github.com
 3. Update MSYS2 with *pacman -Syu*. (Windows only)
 4. Download MingGW64 with *pacman -S mingw-w64-x86_64-toolchain*. (Windows only)
 5. Add *C:/msys64/mingw64/bin/* to PATH. (Windows only)
-6. Compile Go code (*go* folder) with *go build -o app.so -buildmode=c-shared* in terminal.
+6. Compile Go code (*go* folder) with *go build -o App.so -buildmode=c-shared* in terminal.
 7. Compile C++ code using Clion and gcc.
 8. Have fun

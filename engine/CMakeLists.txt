@@ -14,7 +14,7 @@ endif()
 # Options and compiler settings ###################################################################
 option(BUILD_LIBRARY "Build as library" OFF)
 option(OPENGL_ES "Use OpenGL ES instead of OpenGL" OFF)
-option(EXPORT_MAIN "Add main file in root of directory tree" OFF)
+option(EXPORT_MAIN "Add main file in root of directory tree. Add ${ATLAS_ENGINE_MAIN_FILE} to your executable" OFF)
 
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})

@@ -7,6 +7,8 @@
 #include <input/Controller.h>
 #include <input/Touch.h>
 
+#include "LibraryWrapper.h"
+
 #define WINDOW_FLAGS AE_WINDOW_RESIZABLE | AE_WINDOW_HIGH_DPI
 
 class App : public Atlas::EngineInstance {
@@ -23,11 +25,12 @@ public:
 	virtual void Render(float deltaTime) final;
 
 private:
-    Atlas::Viewport viewport;
+    LibraryWrapper libWrapper;
 
-    Atlas::Font font;
-
-	std::string out;
+    void (*GoLoadContent)();
+    void (*GoUnloadContent)();
+    void (*GoUpdate)(float);
+    void (*GoRender)(float);
 
 };
 

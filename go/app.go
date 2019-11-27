@@ -6,27 +6,24 @@ import (
 	"fmt"
 )
 
-func main() { fmt.Println("Hello from go. Loading Content") }
+func main() {}
 
-//export Add
-func Add(a, b int) int { return a + b }
-
-//export GoLoadContent
-func GoLoadContent() {
+//export LoadContent
+func LoadContent() {
 	fmt.Println("Hello from go. Loading Content")
 }
 
-//export GoUnloadContent
-func GoUnloadContent() {
+//export UnloadContent
+func UnloadContent() {
 	fmt.Println("Hello from go. UnloadContent")
 }
 
-//export GoRender
-func GoRender(deltaTime float32) {
+//export Render
+func Render(deltaTime float32) {
 	fmt.Println("Hello from go. Render")
 }
 
-//export GoUpdate
-func GoUpdate(delteTime float32) {
+//export Update
+func Update(delteTime float32) {
 	fmt.Println("Hello from go. Update")
 }
