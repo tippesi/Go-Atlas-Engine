@@ -12,4 +12,7 @@ dependencies/Assimp
 platform/android/app/app.iml
 platform/android/android.iml
 assets
-data/sanmiguel
+go/*.h
+go/*.so
+gowrapper/*.h
+gowrapper/*.so
