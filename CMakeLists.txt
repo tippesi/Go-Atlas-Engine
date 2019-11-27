@@ -19,6 +19,10 @@ set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
 
+if (CYGWIN OR MINGW)
+SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fvisibility=hidden -O3 -Wa,-mbig-obj -std=gnu++11" )
+endif()
+
 # Disable some assimp stuff #######################################################################
 set(CMAKE_DEBUG_POSTFIX "" CACHE STRING "Override Assimp settings")
 set(ASSIMP_BUILD_ASSIMP_TOOLS OFF CACHE STRING "Override Assimp tools settings")
@@ -63,6 +67,10 @@ if(WIN32)
 
 	set(ATLAS_ENGINE_LIBS assimp SDL2main SDL2 GLAD)
     set(ATLAS_ENGINE_SYSTEM_LIBS opengl32 user32 Shlwapi)
+endif()
+
+if (MINGW)
+	set(ATLAS_ENGINE_LIBS mingw32 ${ATLAS_ENGINE_LIBS})
 endif()
 
 if(APPLE)

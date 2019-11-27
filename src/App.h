@@ -22,6 +22,13 @@ public:
 
 	virtual void Render(float deltaTime) final;
 
+private:
+    Atlas::Viewport viewport;
+
+    Atlas::Font font;
+
+	std::string out;
+
 };
 
 #endif
