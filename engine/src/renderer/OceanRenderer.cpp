@@ -12,7 +12,7 @@ namespace Atlas {
 
 			Helper::GeometryHelper::GenerateGridVertexArray(vertexArray, 129, 1.0f / 128.0f);
 
-			// foam = Texture::Texture2D("foam.jpg", false);
+			//foam = Texture::Texture2D("foam.jpg", false);
 
 			shader.AddStage(AE_VERTEX_STAGE, vertexPath);
 			shader.AddStage(AE_FRAGMENT_STAGE, fragmentPath);
@@ -111,7 +111,7 @@ namespace Atlas {
 			ocean->simulation.displacementMap.Bind(GL_TEXTURE0);
 			ocean->simulation.normalMap.Bind(GL_TEXTURE1);
 
-			foam.Bind(GL_TEXTURE2);
+			//foam.Bind(GL_TEXTURE2);
 
 			if (scene->sky.cubemap != nullptr)
 				scene->sky.cubemap->Bind(GL_TEXTURE3);

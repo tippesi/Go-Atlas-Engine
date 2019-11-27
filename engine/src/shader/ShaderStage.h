@@ -34,9 +34,9 @@ namespace Atlas {
 
 			/**
              * Constructs a ShaderStage object.
-             * @param that A pointer to a valid ShaderStage object.
+             * @param source A pointer to a valid ShaderStage object.
              */
-			ShaderStage(const ShaderStage& that);
+			ShaderStage(ShaderStage& source);
 
 			/**
              * Destructs a ShaderStage object.

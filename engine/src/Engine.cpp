@@ -89,12 +89,6 @@ namespace Atlas {
 
 	}
 
-	void Engine::Shutdown() {
-
-		Shader::ShaderManager::Clear();
-
-	}
-
 	void Engine::Update() {
 
 		Clock::Update();
