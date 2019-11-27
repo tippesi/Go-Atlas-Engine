@@ -1,0 +1,41 @@
+// Shadow cascades
+struct Cascade {
+	
+	float distance;
+	mat4 cascadeSpace;	
+	
+};
+
+//Shadow struct has to be implemented like this
+struct Shadow {
+	
+	float distance;
+	float bias;
+	
+	int sampleCount;
+	float sampleRange;
+	float sampleRandomness;
+	
+	int cascadeCount;
+	vec2 resolution;
+	
+	Cascade cascades[5];
+	
+};
+
+//Light struct has to be implemented like this
+struct Light {
+
+    vec3 location;
+	vec3 direction;
+	
+    vec3 color;
+	float ambient;
+	
+	float scatteringFactor;
+		
+	float radius;
+
+	Shadow shadow;
+
+};

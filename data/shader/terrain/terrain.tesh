@@ -1,0 +1,66 @@
+#include "../common/material"
+
+layout(quads, fractional_even_spacing, cw) in;
+
+out vec2 materialTexCoords;
+out vec2 texCoords;
+out vec4 splat;
+
+uniform sampler2D splatMap;
+
+uniform vec2 nodeLocation;
+uniform float nodeSideLength;
+
+uniform float displacementDistance;
+
+uniform mat4 vMatrix;
+uniform mat4 pMatrix;
+
+uniform vec3 cameraLocation;
+uniform Material materials[4];
+
+void main(){
+
+    float u = gl_TessCoord.x;
+    float v = gl_TessCoord.y;
+	
+	//  vec3 pos = gl_in[0].gl_Position.xyz;
+    // pos.xz += gl_TessCoord.xy * tileSize.xz;
+	// Use barrycentric coordinates to carefully calculate the height
+	
+	// world position
+	vec4 position =
+	((1.0f - u) * (1.0f - v) * gl_in[3].gl_Position +
+	u * (1.0f - v) * gl_in[0].gl_Position +
+	u * v * gl_in[1].gl_Position +
+	(1.0f - u) * v * gl_in[2].gl_Position);
+	
+	float vertexDistance = distance(position.xyz, cameraLocation);
+	
+	texCoords = vec2(position.x, position.z) - nodeLocation;
+
+	materialTexCoords = texCoords;
+	
+	texCoords /= nodeSideLength;
+	
+	splat = texture(splatMap, texCoords);
+	
+	float weight = clamp((displacementDistance - vertexDistance), 0.0f, 1.0f);
+	
+	if (weight > 0.0) {
+		float displacement = (texture(materials[0].displacementMap, materialTexCoords / 4.0f).r * materials[0].displacementScale * splat.r + 
+			texture(materials[1].displacementMap, materialTexCoords / 4.0f).r * materials[1].displacementScale * splat.g + 
+			texture(materials[2].displacementMap, materialTexCoords / 4.0f).r * materials[2].displacementScale * splat.b + 
+			texture(materials[3].displacementMap, materialTexCoords / 4.0f).r * materials[3].displacementScale * splat.a)
+			* weight;
+		
+		position.y += displacement;
+	}
+	
+#ifndef GEOMETRY_SHADER
+	position = pMatrix * vMatrix * position;
+#endif
+	
+	gl_Position = position;
+	
+}
