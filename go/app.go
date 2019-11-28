@@ -1,8 +1,8 @@
 package main
 
-// #cgo LDFLAGS: C:/Users/tippe/OneDrive/Dokumente/GitHub/Go-Atlas-Engine-Test/cmake-build-debug/libGoAtlasEngine.dll.a -lstdc++
+// #cgo LDFLAGS: ${SRCDIR}/../cmake-build-debug/cwrapper/libGoAtlasEngineLib.dll.a -lstdc++
 // #include <stdlib.h>
-// #include "../cwrapper/cWindow.h"
+// #include "../cwrapper/src/cWindow.h"
 import "C"
 import (
 	"fmt"
