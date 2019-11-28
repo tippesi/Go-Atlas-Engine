@@ -5,6 +5,8 @@ std::string Atlas::EngineInstance::shaderDirectory = "shader";
 
 void App::LoadContent() {
 
+    AtlasLog("Hello");
+
 	libWrapper = LibraryWrapper("../go/App.so");
 
     GoLoadContent = (void (*)(cWindow))libWrapper.GetFunction("LoadContent");
