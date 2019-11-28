@@ -1,6 +1,6 @@
 package main
 
-// #cgo LDFLAGS: ${SRCDIR}/libGoAtlasEngineLib.dll -lstdc++
+// #cgo LDFLAGS: ${SRCDIR}/libGoAtlasEngineLib.so -lstdc++
 // #include <stdlib.h>
 // #include "../cwrapper/src/cWindow.h"
 import "C"

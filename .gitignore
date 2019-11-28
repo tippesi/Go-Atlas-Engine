@@ -14,5 +14,7 @@ platform/android/android.iml
 assets
 go/*.h
 go/*.so
+go/*.dll*
 gowrapper/*.h
 gowrapper/*.so*
+gowrapper/*.dll*
