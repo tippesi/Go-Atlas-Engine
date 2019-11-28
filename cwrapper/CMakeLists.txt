@@ -81,3 +81,9 @@ set(ATLAS_ENGINE_MAIN_FILE ${ATLAS_ENGINE_MAIN_FILE} PARENT_SCOPE)
 
 add_library(${PROJECT_NAME} SHARED ${GO_ATLAS_LIB_SOURCE_FILES})
 target_link_libraries(${PROJECT_NAME} LINK_PUBLIC ${GO_ATLAS_LIB_LIBS} AtlasEngine)
+
+add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
+    COMMAND python ${CMAKE_SOURCE_DIR}/postbuild.py
+    WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
+    COMMENT "Executing post-build script"
+)

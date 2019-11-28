@@ -14,8 +14,3 @@ for file in os.listdir("./"):
 	    if (platform == "win32"):
 		    copyfile = re.sub("\.dll", ".so", file)
 	    shutil.copy(file, os.path.join("../go", copyfile))
-	
-os.chdir("../go")
-
-cmd = 'go build -o App.so -buildmode=c-shared'
-os.system(cmd)

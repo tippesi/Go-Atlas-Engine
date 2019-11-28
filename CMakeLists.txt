@@ -60,21 +60,14 @@ endif()
 include_directories(cwrapper)
 include_directories(cwrapper/engine/src)
 
+add_custom_target(BuildGo ALL
+	DEPENDS GoAtlasEngineLib
+    COMMAND python ${CMAKE_SOURCE_DIR}/gobuild.py
+    WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
+    COMMENT "Executing Go build script"
+)
+
 add_executable(${PROJECT_NAME} ${ATLAS_ENGINE_MAIN_FILE})
+add_dependencies(${PROJECT_NAME} BuildGo)
+
 target_link_libraries(${PROJECT_NAME} ${GO_ATLAS_LIBS} GoAtlasEngineLib)
-
-if (UNIX)
-add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
-    COMMAND python ${CMAKE_CURRENT_SOURCE_DIR}/postbuild.py
-    WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
-    COMMENT "Executing post-build script"
-)
-endif()
-
-if (WIN32)
-add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
-    COMMAND python ${CMAKE_CURRENT_SOURCE_DIR}/postbuild.py
-    WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
-    COMMENT "Executing post-build script"
-)
-endif()
