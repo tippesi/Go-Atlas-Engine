@@ -70,3 +70,11 @@ add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
     COMMENT "Executing post-build script"
 )
 endif()
+
+if (WIN32)
+add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
+    COMMAND ${CMAKE_CURRENT_SOURCE_DIR}/postbuild.ps1
+    WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
+    COMMENT "Executing post-build script"
+)
+endif()
