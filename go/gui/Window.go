@@ -1,4 +1,4 @@
-package gowrapper
+package gui
 
 // #cgo LDFLAGS: ./cmake-build-debug/libGoAtlasEngine.a
 // #include <stdlib.h>
