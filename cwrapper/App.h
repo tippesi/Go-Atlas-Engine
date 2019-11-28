@@ -8,6 +8,7 @@
 #include <input/Touch.h>
 
 #include "LibraryWrapper.h"
+#include "cWindow.h"
 
 #define WINDOW_FLAGS AE_WINDOW_RESIZABLE | AE_WINDOW_HIGH_DPI
 
@@ -27,7 +28,7 @@ public:
 private:
     LibraryWrapper libWrapper;
 
-    void (*GoLoadContent)();
+    void (*GoLoadContent)(cWindow*);
     void (*GoUnloadContent)();
     void (*GoUpdate)(float);
     void (*GoRender)(float);

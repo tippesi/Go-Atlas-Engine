@@ -4,12 +4,15 @@ import "C"
 
 import (
 	"fmt"
+
+	gowrapper "../gowrapper"
 )
 
 func main() {}
 
 //export LoadContent
-func LoadContent() {
+func LoadContent(window gowrapper.Window) {
+	window.SetTitle("Blub")
 	fmt.Println("Hello from go. Loading Content")
 }
 

@@ -45,6 +45,8 @@ void* LibraryWrapper::GetFunction(std::string name) {
         throw AtlasException("Unable to load function");
     }
 
+    return func;
+
 }
 
 void LibraryWrapper::Load() {

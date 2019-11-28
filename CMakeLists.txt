@@ -78,5 +78,5 @@ foreach(SOURCE_FILE IN ITEMS ${GO_ATLAS_SOURCE_FILES})
     source_group("${SOURCE_PATH_CONVERTED}" FILES "${SOURCE_FILE}")
 endforeach()  
 		
-add_executable(${PROJECT_NAME} ${ATLAS_ENGINE_MAIN_FILE} ${GO_ATLAS_SOURCE_FILES})
+add_library(${PROJECT_NAME} STATIC ${ATLAS_ENGINE_MAIN_FILE} ${GO_ATLAS_SOURCE_FILES})
 target_link_libraries(${PROJECT_NAME} ${GO_ATLAS_LIBS} AtlasEngine)
