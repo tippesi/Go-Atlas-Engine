@@ -15,4 +15,4 @@ assets
 go/*.h
 go/*.so
 gowrapper/*.h
-gowrapper/*.so
+gowrapper/*.so*
