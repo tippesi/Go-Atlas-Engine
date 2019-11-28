@@ -8,6 +8,7 @@ import (
 	"math"
 	"strconv"
 	"unsafe"
+	"fmt"
 )
 
 type GoWindow struct {
@@ -34,7 +35,8 @@ var tm float64
 func LoadContent(window C.cWindow) { // We're not allowed to use Go structs in exports
 	w.Window = window
 	i = 0
-	tm = 0
+	tm = 1
+	tm /= 0
 }
 
 //export UnloadContent

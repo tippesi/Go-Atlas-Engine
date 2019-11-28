@@ -5,7 +5,7 @@ std::string Atlas::EngineInstance::shaderDirectory = "shader";
 
 void App::LoadContent() {
 
-    AtlasLog("Hello");
+    setvbuf(stdout, NULL, _IONBF, 0);
 
 	libWrapper = LibraryWrapper("../go/App.so");
 

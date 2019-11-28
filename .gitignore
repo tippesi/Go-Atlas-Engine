@@ -3,6 +3,7 @@ vsbuild
 build
 cmake-build-debug
 cmake-build-release
+cmake-build-relwithdebinfo
 cmake-build-debug-visual-studio
 dependencies/SDL
 dependencies/Assimp
