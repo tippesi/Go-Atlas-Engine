@@ -5,7 +5,7 @@
 extern "C" {
 #endif
 typedef void* cWindow;
-void SetTitle(cWindow, const char* title);
+void SetTitle(cWindow cwindow, const char* title);
 #ifdef __cplusplus
 }
 #endif

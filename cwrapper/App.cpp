@@ -9,12 +9,12 @@ void App::LoadContent() {
 
 	libWrapper = LibraryWrapper("../go/App.so");
 
-    GoLoadContent = (void (*)(cWindow*))libWrapper.GetFunction("LoadContent");
+    GoLoadContent = (void (*)(cWindow))libWrapper.GetFunction("LoadContent");
     GoUnloadContent = (void (*)())libWrapper.GetFunction("UnloadContent");
     GoUpdate = (void (*)(float))libWrapper.GetFunction("Update");
     GoRender = (void (*)(float))libWrapper.GetFunction("Render");
 
-    GoLoadContent((cWindow*)&window);
+    GoLoadContent((cWindow)&window);
 
 }
 

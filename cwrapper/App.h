@@ -28,7 +28,7 @@ public:
 private:
     LibraryWrapper libWrapper;
 
-    void (*GoLoadContent)(cWindow*);
+    void (*GoLoadContent)(cWindow);
     void (*GoUnloadContent)();
     void (*GoUpdate)(float);
     void (*GoRender)(float);

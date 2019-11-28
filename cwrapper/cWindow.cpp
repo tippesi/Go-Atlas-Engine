@@ -2,9 +2,11 @@
 
 #include "../engine/src/Window.h"
 
-void SetTitle(cWindow cwindow, const char* title) {
+extern "C" {
+void SetTitle(cWindow cwindow, const char *title) {
 
-    auto window = (Atlas::Window*)cwindow;
+    auto window = (Atlas::Window *) cwindow;
     window->SetTitle(title);
 
+}
 }
