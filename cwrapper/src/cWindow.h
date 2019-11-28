@@ -6,6 +6,7 @@ extern "C" {
 #endif
 typedef void* cWindow;
 void SetTitle(cWindow cwindow, const char* title);
+void Clear(cWindow cwindow, float x, float y, float z);
 #ifdef __cplusplus
 }
 #endif

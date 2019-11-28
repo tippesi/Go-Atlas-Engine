@@ -5,6 +5,7 @@ package main
 // #include "../cwrapper/src/cWindow.h"
 import "C"
 import (
+	"math"
 	"strconv"
 	"unsafe"
 )
@@ -19,15 +20,21 @@ func (w GoWindow) SetTitle(title string) {
 	C.SetTitle(w.Window, cstr)
 }
 
+func (w GoWindow) Clear(x, y, z float32) {
+	C.Clear(w.Window, C.float(x), C.float(y), C.float(z))
+}
+
 func main() {}
 
 var w GoWindow
 var i int
+var tm float64
 
 //export LoadContent
 func LoadContent(window C.cWindow) {
 	w.Window = window
 	i = 0
+	tm = 0
 	w.SetTitle("Blub")
 }
 
@@ -38,12 +45,13 @@ func UnloadContent() {
 
 //export Render
 func Render(deltaTime float32) {
-
+	w.Clear(float32(math.Abs(math.Sin(tm))), 1.0, 1.0)
 }
 
 //export Update
-func Update(delteTime float32) {
+func Update(deltaTime float32) {
 	i = i + 1
 	var s = strconv.Itoa(i)
 	w.SetTitle(s)
+	tm += float64(deltaTime)
 }

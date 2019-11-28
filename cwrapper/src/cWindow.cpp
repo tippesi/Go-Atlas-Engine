@@ -9,4 +9,12 @@ void SetTitle(cWindow cwindow, const char *title) {
     window->SetTitle(title);
 
 }
+
+void Clear(cWindow cwindow, float x, float y, float z) {
+
+    auto window = (Atlas::Window *) cwindow;
+    auto vec = vec3(x, y, z);
+    window->Clear(vec);
+
+}
 }
