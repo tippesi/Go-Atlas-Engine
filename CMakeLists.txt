@@ -62,3 +62,11 @@ include_directories(cwrapper/engine/src)
 
 add_executable(${PROJECT_NAME} ${ATLAS_ENGINE_MAIN_FILE})
 target_link_libraries(${PROJECT_NAME} ${GO_ATLAS_LIBS} GoAtlasEngineLib)
+
+if (UNIX)
+add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
+    COMMAND ${CMAKE_CURRENT_SOURCE_DIR}/postbuild.sh
+    WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
+    COMMENT "Executing post-build script"
+)
+endif()
