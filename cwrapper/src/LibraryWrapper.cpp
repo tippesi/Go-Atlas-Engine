@@ -1,5 +1,11 @@
 #include "LibraryWrapper.h"
 
+#ifdef AE_OS_WINDOWS
+#include <windows.h>
+#else
+#include <dlfcn.h>
+#endif
+
 LibraryWrapper::LibraryWrapper(const LibraryWrapper& that) {
 
     operator=(that);
