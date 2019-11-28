@@ -31,11 +31,10 @@ var i int
 var tm float64
 
 //export LoadContent
-func LoadContent(window C.cWindow) {
+func LoadContent(window C.cWindow) { // We're not allowed to use Go structs in exports
 	w.Window = window
 	i = 0
 	tm = 0
-	w.SetTitle("Blub")
 }
 
 //export UnloadContent
