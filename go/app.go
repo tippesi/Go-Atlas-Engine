@@ -44,7 +44,7 @@ func UnloadContent() {
 
 //export Render
 func Render(deltaTime float32) {
-	w.Clear(float32(math.Abs(math.Sin(tm))), 1.0, 1.0)
+	w.Clear(float32(math.Abs(math.Sin(tm))), .5, 0.5)
 }
 
 //export Update
